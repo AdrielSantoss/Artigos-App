@@ -1,4 +1,6 @@
 import 'package:articles/screens/categories_screen.dart';
+import 'package:articles/screens/categories_technologies_screen.dart';
+import 'package:articles/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,6 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -13,9 +16,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(  
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blueGrey).copyWith(secondary: Colors.cyan),
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+          headline6: const TextStyle(
+            fontSize: 20,
+            fontFamily: 'RobotoCondensed'
+          )
+        )
       ),
-      home: const CategoriesScreen(),
+      routes: {
+        AppRoutes.home: (ctx) => const CategoriesScreen(), // route default para home
+        AppRoutes.categoriesTechnologies:(ctx) => const CategoriesTechnologiesScreen(),
+      },
     );
   }
 }
