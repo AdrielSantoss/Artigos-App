@@ -1,4 +1,5 @@
 import 'package:articles/models/technology.dart';
+import 'package:articles/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class TechnologyItem extends StatelessWidget {
@@ -6,14 +7,17 @@ class TechnologyItem extends StatelessWidget {
 
   const TechnologyItem({ Key? key, required this.technology}) : super(key: key);
 
-  void _selectTechnology() {
-
+  void _selectTechnology(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      AppRoutes.categoriesTechnologiesArticle,
+      arguments: technology
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-    onTap: _selectTechnology,
+    onTap: () => _selectTechnology(context),
     child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15) 
