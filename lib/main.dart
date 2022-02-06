@@ -1,5 +1,6 @@
 import 'package:articles/screens/categories_screen.dart';
 import 'package:articles/screens/categories_technologies_screen.dart';
+import 'package:articles/screens/technology_detail_screen.dart';
 import 'package:articles/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.home: (ctx) => const CategoriesScreen(), // route default para home
         AppRoutes.categoriesTechnologies:(ctx) => const CategoriesTechnologiesScreen(),
+        AppRoutes.categoriesTechnologiesArticle:(ctx) => const TechnologyDetailScreen(),
       },
     );
   }
